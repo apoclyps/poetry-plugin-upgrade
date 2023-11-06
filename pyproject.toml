@@ -23,7 +23,7 @@ poetry = "^1.6.1"
 
 [tool.poetry.group.dev.dependencies]
 black = "23.9.1"
-codespell = "2.2.5"
+codespell = "2.2.6"
 freezegun = "1.2.2"
 ipdb = "0.13.13"
 mypy = "1.5.1"
