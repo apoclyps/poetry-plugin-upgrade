@@ -206,14 +206,13 @@ class UpgradeCommand(InstallerCommand):
 
         if current_version.startswith(">="):
             version_constraint = ">="
+        elif current_version[0] == ">":
+            version_constraint = ">"
 
         if current_version.startswith("=="):
             version_constraint = "=="
 
-        if current_version[0] == ">":
-            version_constraint = ">"
-
-        return f"{version_constraint}{candidate.pretty_version}"
+        return f"{version_constraint}{candidate.pretty_version}" if version_constraint else candidate.pretty_version
 
     @staticmethod
     def is_bumpable(
