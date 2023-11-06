@@ -117,4 +117,8 @@ repos:
       - id: commitizen-branch
         stages:
           - push
+        args:
+          - --rev-range
+          - HEAD^!
         always_run: true
+        pass_filenames: false
