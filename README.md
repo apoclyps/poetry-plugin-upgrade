@@ -1,8 +1,9 @@
 # Poetry Plugin: upgrade
 
-![release](https://github.com/apoclyps/poetry-plugin-upgrade/actions/workflows/release.yml/badge.svg)
-![test](https://github.com/apoclyps/poetry-plugin-upgrade/actions/workflows/test.yml/badge.svg)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+![release](https://github.com/apoclyps/poetry-plugin-upgrade/actions/workflows/on-release.yml/badge.svg)
+![publish](https://github.com/apoclyps/poetry-plugin-upgrade/actions/workflows/on-publish.yml/badge.svg)
+![test](https://github.com/apoclyps/poetry-plugin-upgrade/actions/workflows/on-pr.yml/badge.svg)
+[![license](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 ![python_version](https://img.shields.io/badge/Python-%3E=3.8-blue)
 ![poetry_version](https://img.shields.io/badge/Poetry-%3E=1.6-blue)
 

@@ -152,9 +152,11 @@ class UpgradeCommand(InstallerCommand):
         exclude: list[str],
         preserve_wildcard: bool,
     ) -> None:
-        """Handles a dependency"""
+        """Handle dependency update based on options
 
-        breakpoint()
+        Determines if a dependency can be bumped in pyproject.toml
+        and calls bump_version_in_pyproject_content() if it can.
+        """
 
         if not self.is_bumpable(
             dependency,
@@ -177,8 +179,6 @@ class UpgradeCommand(InstallerCommand):
         if candidate is None:
             self.line(f"No new version for '{dependency.name}'")
             return
-
-        breakpoint()
 
         new_version = self.handle_version(current_version=dependency.pretty_constraint, candidate=candidate)
 
