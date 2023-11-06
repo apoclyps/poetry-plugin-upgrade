@@ -58,7 +58,7 @@ def test_command_with_latest(
     expected = PyProjectTOML(path).file.read()
 
     assert app_tester.execute("upgrade --latest") == 0
-    assert dict(PyProjectTOML(tmp_pyproject_path).file.read()) == expected
+    assert PyProjectTOML(tmp_pyproject_path).file.read() == expected
     command_call.assert_called_once_with(name="update")
 
 
