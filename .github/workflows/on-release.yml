@@ -1,0 +1,40 @@
+name: release
+
+on:
+  push:
+    branches:
+      - main
+
+# requires explicit permissions to be granted in the workflow settings
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - name: release
+        id: release
+        uses: google-github-actions/release-please-action@v3.7.12
+        with:
+          # https://github.com/google-github-actions/release-please-action#configuration
+          release-type: python
+          changelog-types: >
+            [
+              {"type": "build", "section": "🏗️ Build System", "hidden": true},
+              {"type": "chore", "section": "🧹 Miscellaneous Chores", "hidden": true},
+              {"type": "ci", "section": "👷 Continuous Integration", "hidden": true},
+              {"type": "docs", "section": "📝 Documentation"},
+              {"type": "feat", "section": "🚀 Features"},
+              {"type": "fix", "section": "🐛 Bug Fixes"},
+              {"type": "perf", "section": "⚡ Performance Improvements"},
+              {"type": "refactor", "section": "♻️ Code Refactoring", "hidden": true},
+              {"type": "revert", "section": "⏪️ Reverts"},
+              {"type": "style", "section": "💄 Styles", "hidden": true},
+              {"type": "test", "section": "✅ Tests", "hidden": true}
+            ]
+          include-v-in-tag: false
