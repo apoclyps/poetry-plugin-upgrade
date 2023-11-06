@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+
+# requires explicit permissions to be granted in the workflow settings
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   release:
     name: Release
