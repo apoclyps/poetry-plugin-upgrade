@@ -15,7 +15,7 @@ from tests.helpers import TestUpgradeCommand
         ("==0.0.1", "1.0.0", "==1.0.0", "happy_path_equal"),
         (">0.0.1", "1.0.0", ">1.0.0", "happy_path_greater"),
         # Edge cases
-        ("<0.0.1", "1.0.0", "<=0.0.1", "happy_path_less_equal"),
+        ("<0.0.1", "1.0.0", "<0.0.1", "happy_path_less_equal"),
         ("<=0.0.1", "1.0.0", "<=0.0.1", "happy_path_less_equal"),
     ],
 )

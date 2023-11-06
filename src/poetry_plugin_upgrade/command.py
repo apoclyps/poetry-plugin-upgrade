@@ -154,6 +154,8 @@ class UpgradeCommand(InstallerCommand):
     ) -> None:
         """Handles a dependency"""
 
+        breakpoint()
+
         if not self.is_bumpable(
             dependency,
             only_packages,
@@ -176,6 +178,8 @@ class UpgradeCommand(InstallerCommand):
             self.line(f"No new version for '{dependency.name}'")
             return
 
+        breakpoint()
+
         new_version = self.handle_version(current_version=dependency.pretty_constraint, candidate=candidate)
 
         self.bump_version_in_pyproject_content(
@@ -188,23 +192,28 @@ class UpgradeCommand(InstallerCommand):
     def handle_version(current_version: str, candidate: Package) -> str:
         """Handle version based on original version"""
 
+        if current_version[0] == "<":
+            return current_version
+
+        version_constraint: str | None = None
+
         # preserve zero based carets ('^0.0') when bumping to latest
         if current_version[0] == "^":
-            return f"^{candidate.pretty_version}"
+            version_constraint = "^"
 
         if current_version[0] == "~" and "." in current_version:
-            return f"~{candidate.pretty_version}"
+            version_constraint = "~"
 
         if current_version.startswith(">="):
-            return f">={candidate.pretty_version}"
+            version_constraint = ">="
 
         if current_version.startswith("=="):
-            return f"=={candidate.pretty_version}"
+            version_constraint = "=="
 
         if current_version[0] == ">":
-            return f">{candidate.pretty_version}"
+            version_constraint = ">"
 
-        return candidate.pretty_version
+        return f"{version_constraint}{candidate.pretty_version}"
 
     @staticmethod
     def is_bumpable(
