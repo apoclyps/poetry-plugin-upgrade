@@ -25,9 +25,6 @@ default_install_hook_types:
   - commit-msg
   - pre-push
 
-default_language_version:
-    python: python3.11
-
 exclude: pypoetry
 
 repos:
