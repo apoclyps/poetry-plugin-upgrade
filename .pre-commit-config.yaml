@@ -57,7 +57,7 @@ repos:
         files: ^tests/app/
 
   - repo: https://github.com/ambv/black
-    rev: 23.10.1
+    rev: 23.11.0
     hooks:
       - id: black
 
@@ -99,17 +99,17 @@ repos:
           - tomli
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.1.4
+    rev: v0.1.7
     hooks:
       - id: ruff
 
   - repo: https://github.com/dosisod/refurb
-    rev: v1.22.1
+    rev: v1.24.0
     hooks:
       - id: refurb
 
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: 3.12.0
+    rev: v3.13.0
     hooks:
       - id: commitizen
         stages:
