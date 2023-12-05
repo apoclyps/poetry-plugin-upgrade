@@ -31,6 +31,8 @@ def test_handle_version(
         version=available_version,
     )
 
-    version = upgrade_cmd_tester.handle_version(current_version=current_version, candidate=candidate)
+    version = upgrade_cmd_tester.handle_version(
+        current_version=current_version, candidate=candidate
+    )
 
     assert version == expected_version

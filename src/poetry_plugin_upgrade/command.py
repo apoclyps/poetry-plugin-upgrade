@@ -1,6 +1,6 @@
 from collections.abc import Iterable
 from http import HTTPStatus
-from typing import Any, Self
+from typing import Any
 
 import requests
 from cleo.helpers import argument, option
@@ -36,7 +36,9 @@ class UpgradeCommand(InstallerCommand):
         option(
             long_name="pinned",
             short_name=None,
-            description=("Include pinned (exact) dependencies when updating to latest."),
+            description=(
+                "Include pinned (exact) dependencies when updating to latest."
+            ),
         ),
         option(
             long_name="exclude",
@@ -54,7 +56,8 @@ class UpgradeCommand(InstallerCommand):
         option(
             long_name="dry-run",
             short_name=None,
-            description="Output bumped <comment>pyproject.toml</> but do not " "execute anything.",
+            description="Output bumped <comment>pyproject.toml</> but do not "
+            "execute anything.",
         ),
         option(
             long_name="preserve-wildcard",
@@ -142,7 +145,7 @@ class UpgradeCommand(InstallerCommand):
         return info["version"]
 
     def handle_dependency(
-        self: Self,
+        self,
         dependency: Dependency,
         latest: bool,
         pinned: bool,
@@ -180,7 +183,9 @@ class UpgradeCommand(InstallerCommand):
             self.line(f"No new version for '{dependency.name}'")
             return
 
-        new_version = self.handle_version(current_version=dependency.pretty_constraint, candidate=candidate)
+        new_version = self.handle_version(
+            current_version=dependency.pretty_constraint, candidate=candidate
+        )
 
         self.bump_version_in_pyproject_content(
             dependency=dependency,
@@ -212,7 +217,11 @@ class UpgradeCommand(InstallerCommand):
         if current_version.startswith("=="):
             version_constraint = "=="
 
-        return f"{version_constraint}{candidate.pretty_version}" if version_constraint else candidate.pretty_version
+        return (
+            f"{version_constraint}{candidate.pretty_version}"
+            if version_constraint
+            else candidate.pretty_version
+        )
 
     @staticmethod
     def is_bumpable(
@@ -260,7 +269,9 @@ class UpgradeCommand(InstallerCommand):
     ) -> None:
         """Bumps versions in pyproject content (pyproject.toml)"""
 
-        poetry_content: dict[str, Any] = pyproject_content.get("tool", {}).get("poetry", {})
+        poetry_content: dict[str, Any] = pyproject_content.get("tool", {}).get(
+            "poetry", {}
+        )
 
         for group in dependency.groups:
             # find section to modify
@@ -272,7 +283,11 @@ class UpgradeCommand(InstallerCommand):
                 # take account for the old `dev-dependencies` section
                 section = poetry_content.get("dev-dependencies", {})
             else:
-                section = poetry_content.get("group", {}).get(group, {}).get("dependencies", {})
+                section = (
+                    poetry_content.get("group", {})
+                    .get(group, {})
+                    .get("dependencies", {})
+                )
 
             # modify section
             if isinstance(section.get(dependency.pretty_name), str):
