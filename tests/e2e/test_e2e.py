@@ -170,7 +170,9 @@ def test_command_with_exclude(
     path = project_path / "expected_pyproject_with_exclude.toml"
     expected = PyProjectTOML(path).file.read()
 
-    assert app_tester.execute("upgrade --exclude foo --exclude bar --exclude=grault") == 0
+    assert (
+        app_tester.execute("upgrade --exclude foo --exclude bar --exclude=grault") == 0
+    )
     assert PyProjectTOML(tmp_pyproject_path).file.read() == expected
     command_call.assert_called_once_with(name="update")
 

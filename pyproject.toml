@@ -43,7 +43,7 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
-line_length = 120
+line_length = 88
 
 [tool.mypy]
 ignore_missing_imports = true
@@ -159,7 +159,7 @@ exclude = [
     "tests/test_migrations.py",
 ]
 
-line-length = 120
+line-length = 88
 
 # Allow unused variables when underscore-prefixed.
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
