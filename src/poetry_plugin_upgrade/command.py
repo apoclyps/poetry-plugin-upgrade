@@ -1,6 +1,6 @@
 from collections.abc import Iterable
 from http import HTTPStatus
-from typing import Any, Self
+from typing import Any
 
 import requests
 from cleo.helpers import argument, option
@@ -145,7 +145,7 @@ class UpgradeCommand(InstallerCommand):
         return info["version"]
 
     def handle_dependency(
-        self: Self,
+        self,
         dependency: Dependency,
         latest: bool,
         pinned: bool,

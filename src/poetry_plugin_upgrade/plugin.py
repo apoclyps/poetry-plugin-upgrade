@@ -1,5 +1,3 @@
-from typing import Self
-
 from poetry.plugins.application_plugin import ApplicationPlugin
 
 import poetry_plugin_upgrade
@@ -11,5 +9,5 @@ def factory() -> UpgradeCommand:
 
 
 class UpgradeApplicationPlugin(ApplicationPlugin):
-    def activate(self: Self, application: poetry_plugin_upgrade) -> None:
+    def activate(self, application: poetry_plugin_upgrade) -> None:
         application.command_loader.register_factory("upgrade", factory)
