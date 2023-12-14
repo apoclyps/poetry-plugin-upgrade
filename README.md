@@ -68,6 +68,16 @@ Update packages but ignore the `dev` group
 poetry upgrade --without dev
 ```
 
+## Example Usage
+
+To Add poetry-plugin-upgrade to poetry using the latest version and to bump all your dev dependencies without modifying transitive dependencies you can run
+
+```bash
+poetry self add poetry-plugin-upgrade
+
+poetry upgrade --only=dev --latest --pinned --no-interaction --no-install
+```
+
 ## Contributing
 
 Contributions are welcome! See the [Contributing Guide](https://github.com/apoclyps/poetry-plugin-upgrade/blob/master/CONTRIBUTING.md).

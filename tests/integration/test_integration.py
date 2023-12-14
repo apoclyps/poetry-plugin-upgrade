@@ -12,13 +12,13 @@ def test_handle_dependency(
     upgrade_cmd_tester: TestUpgradeCommand,
     mocker: MockerFixture,
 ) -> None:
-    dependency = Dependency(
+    dependency: Dependency = Dependency(
         name="foo",
         constraint="^1.0",
         groups=["main"],
     )
-    new_version = "2.0.0"
-    package = Package(
+    new_version: str = "2.0.0"
+    package: Package = Package(
         name=dependency.name,
         version=new_version,
     )
@@ -60,13 +60,13 @@ def test_handle_dependency_with_pinned_version(
     upgrade_cmd_tester: TestUpgradeCommand,
     mocker: MockerFixture,
 ) -> None:
-    dependency = Dependency(
+    dependency: Dependency = Dependency(
         name="foo",
         constraint="1.0",
         groups=["main"],
     )
-    new_version = "2.0.0"
-    package = Package(
+    new_version: str = "2.0.0"
+    package: Package = Package(
         name=dependency.name,
         version=new_version,
     )
@@ -99,7 +99,7 @@ def test_handle_dependency_with_pinned_version(
     )
     bump_version_in_pyproject_content.assert_called_once_with(
         dependency=dependency,
-        new_version=f"{new_version}",
+        new_version=new_version,
         pyproject_content=content,
     )
 
@@ -108,13 +108,13 @@ def test_handle_dependency_with_latest(
     upgrade_cmd_tester: TestUpgradeCommand,
     mocker: MockerFixture,
 ) -> None:
-    dependency = Dependency(
+    dependency: Dependency = Dependency(
         name="foo",
         constraint="^1.0",
         groups=["main"],
     )
-    new_version = "2.0.0"
-    package = Package(
+    new_version: str = "2.0.0"
+    package: Package = Package(
         name=dependency.name,
         version=new_version,
     )
@@ -156,13 +156,13 @@ def test_handle_dependency_with_zero_caret(
     upgrade_cmd_tester: TestUpgradeCommand,
     mocker: MockerFixture,
 ) -> None:
-    dependency = Dependency(
+    dependency: Dependency = Dependency(
         name="foo",
         constraint="^0",
         groups=["main"],
     )
-    new_version = "0.1"
-    package = Package(
+    new_version: str = "0.1"
+    package: Package = Package(
         name=dependency.name,
         version=new_version,
     )
@@ -204,13 +204,13 @@ def test_handle_dependency_excluded(
     upgrade_cmd_tester: TestUpgradeCommand,
     mocker: MockerFixture,
 ) -> None:
-    dependency = Dependency(
+    dependency: Dependency = Dependency(
         name="foo",
         constraint="^1.0",
         groups=["main"],
     )
-    new_version = "2.0.0"
-    package = Package(
+    new_version: str = "2.0.0"
+    package: Package = Package(
         name=dependency.name,
         version=new_version,
     )
@@ -243,13 +243,13 @@ def test_handle_dependency_preserve_wildcard(
     upgrade_cmd_tester: TestUpgradeCommand,
     mocker: MockerFixture,
 ) -> None:
-    dependency = Dependency(
+    dependency: Dependency = Dependency(
         name="foo",
         constraint="*",
         groups=["main"],
     )
-    new_version = "2.0.0"
-    package = Package(
+    new_version: str = "2.0.0"
+    package: Package = Package(
         name=dependency.name,
         version=new_version,
     )
