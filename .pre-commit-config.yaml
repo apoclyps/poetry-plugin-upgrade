@@ -57,12 +57,12 @@ repos:
         files: ^tests/app/
 
   - repo: https://github.com/ambv/black
-    rev: 23.11.0
+    rev: 23.12.0
     hooks:
       - id: black
 
   - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.5
+    rev: 1.7.6
     hooks:
       - id: bandit
         description: Security oriented static analyser for python code
@@ -99,12 +99,12 @@ repos:
           - tomli
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.1.7
+    rev: v0.1.8
     hooks:
       - id: ruff
 
   - repo: https://github.com/dosisod/refurb
-    rev: v1.24.0
+    rev: v1.25.0
     hooks:
       - id: refurb
 
