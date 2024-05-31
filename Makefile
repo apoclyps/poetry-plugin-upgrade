@@ -1,4 +1,4 @@
-.PHONY: help lint test
+.PHONY: help lint test tox shell
 
 default: help
 
@@ -20,3 +20,14 @@ lint: env ## Lint and format the code
 
 test: env ## Run the unit tests and linters
 	pytest -vv --cov=src --cov-report=term-missing --cov-fail-under=50 tests
+
+install: ## Install dependencies
+	@poetry config virtualenvs.in-project true
+	@poetry config virtualenvs.create true
+	@poetry install --no-root
+
+tox: install ## Run linting/testing in parallel for multiple Python versions
+	@poetry run tox -p
+
+shell: .env install ## Start the poetry shell
+	@poetry shell

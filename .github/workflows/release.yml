@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  packages: write
 
 jobs:
   release:
@@ -24,21 +25,7 @@ jobs:
           # https://github.com/google-github-actions/release-please-action#configuration
           release-type: python
           package-name: poetry-plugin-upgrade
-          changelog-types: >
-            [
-              {"type": "build", "section": "🏗️ Build System", "hidden": true},
-              {"type": "chore", "section": "🧹 Miscellaneous Chores", "hidden": true},
-              {"type": "ci", "section": "👷 Continuous Integration", "hidden": true},
-              {"type": "docs", "section": "📝 Documentation"},
-              {"type": "feat", "section": "🚀 Features"},
-              {"type": "fix", "section": "🐛 Bug Fixes"},
-              {"type": "perf", "section": "⚡ Performance Improvements"},
-              {"type": "refactor", "section": "♻️ Code Refactoring", "hidden": true},
-              {"type": "revert", "section": "⏪️ Reverts"},
-              {"type": "style", "section": "💄 Styles", "hidden": true},
-              {"type": "test", "section": "✅ Tests", "hidden": true}
-            ]
-          include-v-in-tag: false
+          config-file: .github/release-please-config.json
 
   publish:
     name: publish
@@ -58,7 +45,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Install poetry
         uses: snok/install-poetry@v1

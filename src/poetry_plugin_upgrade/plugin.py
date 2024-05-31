@@ -9,5 +9,5 @@ def factory() -> UpgradeCommand:
 
 
 class UpgradeApplicationPlugin(ApplicationPlugin):
-    def activate(self, application: poetry_plugin_upgrade) -> None:
-        application.command_loader.register_factory("upgrade", factory)
+    def activate(self, application: poetry_plugin_upgrade) -> None:  # type: ignore[valid-type]
+        application.command_loader.register_factory("upgrade", factory)  # type: ignore[attr-defined]
