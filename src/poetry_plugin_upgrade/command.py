@@ -129,10 +129,12 @@ class UpgradeCommand(InstallerCommand):
             yield self.poetry.package.dependency_group(group)
 
     @staticmethod
-    def retrieve_latest_version(name: str) -> str:
+    def retrieve_latest_version(name: str) -> str | None:
         """Retrieve the latest version of a package from PyPI"""
 
-        response: dict = requests.get(f"https://pypi.org/pypi/{name}/json", timeout=10)
+        response: requests.Response = requests.get(
+            f"https://pypi.org/pypi/{name}/json", timeout=10
+        )
 
         if response.status_code not in (HTTPStatus.OK, HTTPStatus.NOT_FOUND):
             response.raise_for_status()

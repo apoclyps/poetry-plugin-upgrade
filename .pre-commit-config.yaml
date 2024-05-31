@@ -81,7 +81,7 @@ repos:
             "--min-confidence",
             "90",
             "--exclude",
-            "tests,env,lib/schemas/fields.py",
+            "tests,env,lib/schemas/fields.py,.tox",
             "--ignore-names",
             "einfo,task_id,retval,logger,log_method,exc,args",
             ".",
