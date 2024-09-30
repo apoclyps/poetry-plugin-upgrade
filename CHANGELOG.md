@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.3.0](https://github.com/apoclyps/poetry-plugin-upgrade/compare/0.2.0...v0.3.0) (2024-09-30)
+
+
+### Features
+
+* implements tox in pipline for CI ([#47](https://github.com/apoclyps/poetry-plugin-upgrade/issues/47)) ([2b1b879](https://github.com/apoclyps/poetry-plugin-upgrade/commit/2b1b8799654d30cfad75f1ffd86c32cee9b638b9))
+
+
+### Bug Fixes
+
+* only run pre-commit on branches that are not main ([#50](https://github.com/apoclyps/poetry-plugin-upgrade/issues/50)) ([aa5f366](https://github.com/apoclyps/poetry-plugin-upgrade/commit/aa5f3665e459421e9075669efb2f87a81f583eee))
+* run pr linting separately from tests ([#49](https://github.com/apoclyps/poetry-plugin-upgrade/issues/49)) ([ab74ccb](https://github.com/apoclyps/poetry-plugin-upgrade/commit/ab74ccbf3002410e2cfacea52648ab403ec8da33))
+
 ## [0.2.0](https://github.com/apoclyps/poetry-plugin-upgrade/compare/0.1.0...0.2.0) (2023-12-05)
 
 
