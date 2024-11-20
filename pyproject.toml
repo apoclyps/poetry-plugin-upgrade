@@ -35,7 +35,7 @@ refurb = "2.0.0"
 ruff = "0.6.8"
 tox = "4.20.0"
 tox-gh-actions = "3.2.0"
-vcrpy = "6.0.1"
+vcrpy = "6.0.2"
 
 [tool.poetry.plugins."poetry.application.plugin"]
 upgrade = "poetry_plugin_upgrade.plugin:UpgradeApplicationPlugin"
