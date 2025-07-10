@@ -22,7 +22,7 @@ python = "^3.10"
 poetry = ">=1.8.3,<3.0.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "24.8.0"
+black = "25.1.0"
 codespell = "2.3.0"
 freezegun = "1.5.1"
 ipdb = "0.13.13"
