@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "poetry-plugin-upgrade"
-version = "0.2.0"
+version = "0.3.0"
 description = "Poetry plugin that updates dependencies and bumps their versions in pyproject.toml file"
 authors = ["Kyle Harrison <kyle.harrison.dev@gmail.com>"]
 packages = [{ include = "poetry_plugin_upgrade", from = "src" }]
